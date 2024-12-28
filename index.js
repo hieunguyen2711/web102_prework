@@ -46,19 +46,22 @@ function addGamesToPage(games) {
 
 
         // append the game to the games-container
-    
+    const gamesContainer = document.getElementById("games-container");
     for (const game of games) {
         const newDiv = document.createElement("div");
         newDiv.classList.add("game-card");
-        const display =
-        `<div class="game-card">
-            <h1>The name of the game is ${game.name}</h1>
-            <p>Its description is: ${game.description}</p>
-            <img class="game-img" src="${game.img}" alt="This is the picture of the game ${game.name}">
-        </div>`;
-        newDiv.innerHTML = display;
+        newDiv.innerHTML = `
+            
+                <h1>${game.name}</h1>
+                <p>${game.description}</p>
+                <img class="game-img" src="${game.img}" alt="This is the picture of the game ${game.name}">
+
+        `;
+        gamesContainer.appendChild(newDiv);
+        console.log(newDiv);
         const game_intro = document.getElementById("games-introduction");
-        document.body.insertBefore(newDiv, game_intro);
+        // document.body.insertBefore(newDiv, game_intro);
+        
 
     }
     
