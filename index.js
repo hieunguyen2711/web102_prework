@@ -10,6 +10,7 @@ import GAMES_DATA from './games.js';
 // create a list of objects to store the data about the games using JSON.parse
 const GAMES_JSON = JSON.parse(GAMES_DATA)
 console.log(GAMES_JSON)
+addGamesToPage(GAMES_JSON);
 
 // remove all child elements from a parent element in the DOM
 function deleteChildElements(parent) {
@@ -56,6 +57,9 @@ function addGamesToPage(games) {
             <img class="game-img" src="${game.img}" alt="This is the picture of the game ${game.name}">
         </div>`;
         newDiv.innerHTML = display;
+        const game_intro = document.getElementById("games-introduction");
+        document.body.insertBefore(newDiv, game_intro);
+
     }
     
 
