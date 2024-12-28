@@ -8,7 +8,12 @@
 import GAMES_DATA from './games.js';
 
 // create a list of objects to store the data about the games using JSON.parse
-const GAMES_JSON = JSON.parse(GAMES_DATA)
+const GAMES_JSON = JSON.parse(GAMES_DATA);
+const total_contributions = GAMES_JSON.reduce((acc, game) => {return acc + game.backers},0);
+const total_raised = GAMES_JSON.reduce((acc, game) => {return acc + game.pledged}, 0);
+const total_games = GAMES_JSON.reduce((acc, game) => {return acc + 1}, 0);
+
+
 console.log(GAMES_JSON)
 addGamesToPage(GAMES_JSON);
 
@@ -80,6 +85,8 @@ function addGamesToPage(games) {
 
 // grab the contributions card element
 const contributionsCard = document.getElementById("num-contributions");
+contributionsCard.textContent = total_contributions;
+console.log(total_contributions);
 
 // use reduce() to count the number of total contributions by summing the backers
 
@@ -89,12 +96,18 @@ const contributionsCard = document.getElementById("num-contributions");
 
 // grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
+raisedCard.textContent = total_raised;
 
 // set inner HTML using template literal
 
 
 // grab number of games card and set its inner HTML
 const gamesCard = document.getElementById("num-games");
+gamesCard.textContent = total_games;
+
+let animals = ["dog", "cat", "giraffe", "horse"];
+let first = animals.reduce( (sum, animal) => {return animal.charAt(0);}, "");
+console.log(first);
 
 
 /*************************************************************************************
