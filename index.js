@@ -107,7 +107,7 @@ gamesCard.textContent = total_games;
 
 let animals = ["dog", "cat", "giraffe", "horse"];
 let first = animals.reduce( (sum, animal) => {return animal.charAt(0);}, "");
-console.log(first);
+console.log(first); 
 
 
 /*************************************************************************************
