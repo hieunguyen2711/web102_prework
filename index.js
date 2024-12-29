@@ -116,8 +116,8 @@ function filterUnfundedOnly() {
 
     // use filter() to get a list of games that have not yet met their goal
     const games_less_goal = GAMES_JSON.filter((game) => {return game.pledged < game.goal});
-    const unfunded_games = games_less_goal.length;
-    console.log(unfunded_games);
+    
+
     
     // use the function we previously created to add the unfunded games to the DOM
     addGamesToPage(games_less_goal);
@@ -170,12 +170,22 @@ allBtn.addEventListener("click", showAllGames);
 const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
+const unfunded_games = GAMES_JSON.filter((game) => {return game.pledged < game.goal}).length;
+const funded_games = GAMES_JSON.filter((game) => {return game.pledged >= game.goal});
+console.log(funded_games);
+const raised_money = funded_games.reduce((acc, game) => {return acc + game.pledged}, 0);
+
 
 
 // create a string that explains the number of unfunded games using the ternary operator
-
+const displayString = `A total of $${raised_money.toLocaleString("en-US")} has been raised for ${funded_games.length} ${funded_games.length <= 1 ? "game" : "games"}. Currently, 
+                        ${unfunded_games} 
+                        ${unfunded_games <= 1 ? "game remains unfunded. Thank you" : "games remain unfunded. We need your help!!"}`;
 
 // create a new DOM element containing the template string and append it to the description container
+const newP = document.createElement("p");
+newP.textContent = displayString;
+descriptionContainer.append(newP);
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
