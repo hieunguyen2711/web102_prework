@@ -22,8 +22,8 @@ The following **optional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
-
-I have put it at the bottom of the website.
+<img src='https://drive.google.com/file/d/1QOWazNB-qnwEhpU_VTXwSvbQ3XP4oAHv/view?usp=sharing' title='Video Walkthrough' width='600px' alt='Video Walkthrough'/>
+I have also put it at the bottom of the website.
 
 
 GIF created with "screentogif" 
